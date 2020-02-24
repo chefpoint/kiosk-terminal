@@ -1,0 +1,17 @@
+[
+  {
+    "id": "nations",
+    "icon": "🇪🇺",
+    "title": "TP Nations"
+  },
+  {
+    "id": "oceanario",
+    "icon": "🐡",
+    "title": "TP Oceanário"
+  },
+  {
+    "id": "atlantico",
+    "icon": "🌊",
+    "title": "TP Atlântico"
+  }
+]

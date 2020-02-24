@@ -1,0 +1,26 @@
+[
+  {
+    "id": "XDFSH",
+    "icon": "🍲",
+    "title": "Soup",
+    "price": 0
+  },
+  {
+    "id": "XDFSH",
+    "icon": "🥗",
+    "title": "Salad",
+    "price": 0
+  },
+  {
+    "id": "XDFSH",
+    "icon": "🍞",
+    "title": "Bread",
+    "price": 0
+  },
+  {
+    "id": "XDFSH",
+    "icon": "🍎",
+    "title": "Fruit",
+    "price": 0
+  }
+]
