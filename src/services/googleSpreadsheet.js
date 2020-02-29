@@ -6,8 +6,8 @@ const doc = new GoogleSpreadsheet(
 
 async function authenticate() {
   await doc.useServiceAccountAuth({
-    client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    private_key: process.env.GOOGLE_PRIVATE_KEY
+    client_email: process.env.REACT_APP_GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    private_key: process.env.REACT_APP_GOOGLE_PRIVATE_KEY
   });
 }
 
