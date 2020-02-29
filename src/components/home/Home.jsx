@@ -3,6 +3,7 @@
 import React from "react";
 
 import _ from "lodash";
+import moment from "moment";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -15,6 +16,7 @@ import ProductCard from "./ProductCard";
 import BadgeInput from "./BadgeInput";
 import ConfirmButton from "./ConfirmButton";
 import StatusOverlay from "./StatusOverlay.jsx";
+import googleSpreadsheet from "../../services/googleSpreadsheet";
 
 /* * */
 /* * * * */
@@ -24,7 +26,7 @@ class Home extends React.Component {
     cart: [],
     loading: false,
     success: false,
-    error: false
+    error: null
   };
 
   addProductToCart(product) {
@@ -37,15 +39,43 @@ class Home extends React.Component {
     this.setState({ cart: _.pull(cart, product) });
   }
 
-  confirmPurchase() {
+  checkIfCartHasProduct(cart, productID) {
+    for (const item of cart) return Object.values(item).includes(productID);
+    return false;
+  }
+
+  async confirmPurchase() {
+    // Show the loading screen
     this.setState({ loading: !this.state.loading });
-    setTimeout(() => {
-      this.setState({ loading: !this.state.loading });
-      this.setState({ success: true });
+    try {
+      // try pushing the transaction to Google Sheets
+      await googleSpreadsheet.addNewRow({
+        // The shop location
+        Location: this.props.match.params.location,
+        // The transaction date formated so GSheets understands
+        Date: moment().format("[=DATE(]YYYY[,]MM[,]DD[)]"),
+        // The transaction time formated so GSheets understands
+        Time: moment().format("[=TIME(]HH[,]mm[,0)]"),
+        // The customer TP Badge ID
+        BadgeID: this.state.badgeID.toString(),
+        // If cart has the product, then add 1, else add 0
+        Soup: this.checkIfCartHasProduct(this.state.cart, "Soup") ? 1 : 0,
+        Salad: this.checkIfCartHasProduct(this.state.cart, "Salad") ? 1 : 0,
+        Bread: this.checkIfCartHasProduct(this.state.cart, "Bread") ? 1 : 0,
+        Fruit: this.checkIfCartHasProduct(this.state.cart, "Fruit") ? 1 : 0
+      });
+
+      // If successful then show success message
+      this.setState({ loading: !this.state.loading, success: true });
       setTimeout(() => {
+        // and reload the window after 800 miliseconds
         window.location = "/" + this.props.match.params.location;
-      }, 1000);
-    }, 1000);
+      }, 800);
+    } catch (err) {
+      console.log(err);
+      // If an error occurs then display an error message
+      this.setState({ loading: !this.state.loading, error: err.message });
+    }
   }
 
   render() {
@@ -83,6 +113,7 @@ class Home extends React.Component {
           loading={this.state.loading}
           success={this.state.success}
           error={this.state.error}
+          location={this.props.match.params.location}
         />
       </React.Fragment>
     );

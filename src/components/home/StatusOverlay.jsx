@@ -7,12 +7,12 @@ import animation from "../elements/animation/files/happy-dog.json";
 
 /* * */
 /* * * * */
-function StatusOverlay({ loading, success, error }) {
+function StatusOverlay({ loading, success, error, location }) {
   return (
     (loading || success || error) && (
       <div
         className="loading-overlay"
-        onClick={() => error && (window.location = "/")}
+        onClick={() => error && (window.location = "/" + location)}
       >
         <div className="display-card loading-card text-center sh-light animate p-3 my-3">
           {/* If status is Loading */}
@@ -41,7 +41,7 @@ function StatusOverlay({ loading, success, error }) {
                 </span>
               </h1>
               <h2 className="mt-4">Tente novamente.</h2>
-              <h3 className="mb-4">Try again.</h3>
+              <p className="mb-4">{error}</p>
             </React.Fragment>
           )}
         </div>
