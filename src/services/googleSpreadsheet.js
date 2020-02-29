@@ -12,7 +12,7 @@ async function authenticate() {
 }
 
 async function addNewRow(row) {
-  await doc.useServiceAccountAuth(require("./googleServiceAccount.json"));
+  await this.authenticate();
   await doc.loadInfo();
   const sheet = doc.sheetsByIndex[0];
   await sheet.addRow(row);
