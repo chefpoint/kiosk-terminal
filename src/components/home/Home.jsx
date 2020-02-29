@@ -70,7 +70,7 @@ class Home extends React.Component {
       this.setState({ loading: !this.state.loading, success: true });
       setTimeout(() => {
         // and reload the window after 800 miliseconds
-        // window.location = "/" + this.props.match.params.location;
+        window.location = "/" + this.props.match.params.location;
       }, 800);
     } catch (err) {
       console.log(err);
