@@ -5,7 +5,10 @@ const doc = new GoogleSpreadsheet(
 );
 
 async function authenticate() {
-  await doc.useServiceAccountAuth(require("./googleServiceAccount.json"));
+  await doc.useServiceAccountAuth({
+    client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY
+  });
 }
 
 async function addNewRow(row) {
