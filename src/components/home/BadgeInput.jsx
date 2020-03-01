@@ -19,7 +19,7 @@ class BadgeInput extends React.Component {
       this.textInput.current.focus();
       this.textInput.current.select();
       this.textInput.current.setSelectionRange(0, 9999);
-    }, 200);
+    }, 300);
   }
 
   render() {
