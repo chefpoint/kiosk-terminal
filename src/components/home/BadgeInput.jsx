@@ -28,6 +28,7 @@ class BadgeInput extends React.Component {
   }
 
   render() {
+    this.setFocusAgain();
     return (
       <input
         className="badgeInput animate my-4 mx-3"
