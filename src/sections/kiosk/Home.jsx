@@ -12,10 +12,10 @@ import Col from "react-bootstrap/Col";
 import Header from "../../components/Header";
 import BadgeInput from "./BadgeInput";
 import ProductCard from "./ProductCard";
-import ConfirmButton from "./ConfirmButton";
+import CheckoutButton from "./CheckoutButton";
 import StatusOverlay from "./StatusOverlay";
 
-import googleSpreadsheet from "../../services/googleSpreadsheet";
+import spreadsheets from "../../services/spreadsheets";
 
 import settings from "../../settings/general";
 import products from "../../settings/products";
@@ -52,7 +52,7 @@ export default class Home extends React.Component {
     this.setState({ loading: !this.state.loading });
     try {
       // try pushing the transaction to Google Sheets
-      await googleSpreadsheet.addNewRow({
+      await spreadsheets.addNewRow({
         // The shop location
         Location: this.props.match.params.location,
         // The transaction date formated so GSheets understands
@@ -62,20 +62,19 @@ export default class Home extends React.Component {
         // The customer TP Badge ID
         BadgeID: this.state.badgeID.toString(),
         // If cart has the product, then add 1, else add 0
-        Soup: this.checkIfCartHasProduct(this.state.cart, "Soup") ? 1 : 0,
-        Salad: this.checkIfCartHasProduct(this.state.cart, "Salad") ? 1 : 0,
-        Bread: this.checkIfCartHasProduct(this.state.cart, "Bread") ? 1 : 0,
-        Fruit: this.checkIfCartHasProduct(this.state.cart, "Fruit") ? 1 : 0
+        Soup: this.checkIfCartHasProduct(this.state.cart, "soup") ? 1 : 0,
+        Salad: this.checkIfCartHasProduct(this.state.cart, "salad") ? 1 : 0,
+        Bread: this.checkIfCartHasProduct(this.state.cart, "bread") ? 1 : 0,
+        Fruit: this.checkIfCartHasProduct(this.state.cart, "fruit") ? 1 : 0
       });
 
       // If successful then show success message
       this.setState({ loading: !this.state.loading, success: true });
       setTimeout(() => {
-        // and reload the window after 800 miliseconds
+        // and reload the window after x miliseconds
         window.location = "/" + this.props.match.params.location;
       }, settings["success-reload-delay"]);
     } catch (err) {
-      console.log(err);
       // If an error occurs then display an error message
       this.setState({ loading: !this.state.loading, error: err.message });
     }
@@ -106,7 +105,7 @@ export default class Home extends React.Component {
             })}
           </Row>
           <Row>
-            <ConfirmButton
+            <CheckoutButton
               enabled={this.state.cart.length && this.state.badgeID.length}
               onClick={() => this.confirmPurchase()}
             />

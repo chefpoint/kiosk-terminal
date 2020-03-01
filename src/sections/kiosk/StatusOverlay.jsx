@@ -11,10 +11,10 @@ export default function StatusOverlay({ loading, success, error, location }) {
   return (
     (loading || success || error) && (
       <div
-        className="loading-overlay"
+        className="overlay"
         onClick={() => error && (window.location = "/" + location)}
       >
-        <div className="display-card loading-card text-center sh-light animate p-3 my-3">
+        <div className="display-card card-center text-center depth animate p-3 my-3">
           {/* If status is Loading */}
           {loading && (
             <Player animationData={animation} height={200} align="center" />
@@ -36,11 +36,11 @@ export default function StatusOverlay({ loading, success, error, location }) {
           {error && (
             <React.Fragment>
               <h1 style={{ fontSize: 80 }} className="mt-2">
-                <span role="img" aria-label="An Error Occurred">
+                <span role="img" aria-label="Ocorreu um Erro">
                   ❌
                 </span>
               </h1>
-              <h2 className="mt-4">Tente novamente.</h2>
+              <h2 className="mt-4">Tente novamente</h2>
               <p className="mb-4">{error}</p>
             </React.Fragment>
           )}

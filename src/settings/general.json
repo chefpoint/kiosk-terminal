@@ -1,4 +1,5 @@
 {
+  "version": "CHEF POINT Kiosk - Version 1",
   "input-focus-delay": 800,
   "success-reload-delay": 600
 }

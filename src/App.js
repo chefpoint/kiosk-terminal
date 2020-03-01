@@ -1,24 +1,16 @@
 import React from "react";
-import "./App.css";
-import "./styles/elements.css";
-
 import { Switch, Route, Redirect } from "react-router";
 
-import StoreSelector from "./sections/storeSelector/StoreSelector";
-import Home from "./sections/home/Home";
+import LocationSelector from "./sections/locationSelector/LocationSelector";
+import Home from "./sections/kiosk/Home";
+
+import "./styles/elements.css";
 
 function App() {
   return (
     <Switch>
-      {/* IN STORE FEEDBACK */}
       <Route path="/:location" component={Home} />
-      <Route path="/" component={StoreSelector} />
-
-      {/* LOGIN */}
-      {/* <Route path="/login" component={Login} /> */}
-
-      {/* COMMON */}
-      {/* <Route path="/not-found" component={NotFound} /> */}
+      <Route path="/" component={LocationSelector} />
       <Redirect to="/" />
     </Switch>
   );

@@ -5,9 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* REMOVE THIS LINE IF IT DOES NOT WORK */
-  -webkit-touch-callout: none;
 }
 
 code {

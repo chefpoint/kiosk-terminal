@@ -4,12 +4,12 @@ import React from "react";
 
 /* * */
 /* * * * */
-export default function ConfirmButton({ enabled, onClick }) {
+export default function CheckoutButton({ enabled, onClick }) {
   return (
     <div
       className={
-        "display-card text-center animate p-5 m-3 w-100 pb-0 mb-0" +
-        (enabled ? " sh-light cursor-pointer confirmButton" : " disabled")
+        "display-card text-center animate p-5 m-3 w-100" +
+        (enabled ? " depth cursor-pointer confirmButton" : " disabled")
       }
       onClick={() => enabled && onClick()}
     >

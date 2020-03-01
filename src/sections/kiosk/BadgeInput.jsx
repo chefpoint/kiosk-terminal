@@ -13,7 +13,6 @@ export default class BadgeInput extends React.Component {
 
   componentDidMount() {
     this.setFocusAgain();
-    // setInterval(() => this.setFocusAgain(), settings["input-focus-delay"]);
   }
 
   setFocusAgain() {

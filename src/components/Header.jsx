@@ -9,7 +9,7 @@ import logo from "./chefpoint-logo.jpg";
 class Header extends React.Component {
   render() {
     return (
-      <div className="mt-5 mb-3 text-center">
+      <div className="mt-5 mb-2 text-center">
         <img
           className="cursor-pointer"
           src={logo}

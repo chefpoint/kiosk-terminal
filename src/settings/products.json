@@ -1,26 +1,26 @@
 [
   {
-    "id": "ABC1",
+    "id": "soup",
     "icon": "🍲",
-    "title": "Soup",
+    "title": "Sopa",
     "price": 0
   },
   {
-    "id": "ABC2",
+    "id": "salad",
     "icon": "🥗",
-    "title": "Salad",
+    "title": "Salada",
     "price": 0
   },
   {
-    "id": "ABC3",
+    "id": "bread",
     "icon": "🍞",
-    "title": "Bread",
+    "title": "Pão",
     "price": 0
   },
   {
-    "id": "ABC4",
+    "id": "fruit",
     "icon": "🍎",
-    "title": "Fruit",
+    "title": "Fruta",
     "price": 0
   }
 ]

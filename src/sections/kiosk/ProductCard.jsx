@@ -13,8 +13,8 @@ export default class ProductCard extends React.Component {
     return (
       <div
         className={
-          "display-card text-center sh-light animate cursor-pointer p-3 my-3" +
-          (this.state.selected ? "  productSelected" : "")
+          "display-card text-center depth animate cursor-pointer p-3 my-3" +
+          (this.state.selected ? " productIsSelected" : "")
         }
         onClick={() => {
           this.state.selected
