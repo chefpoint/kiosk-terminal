@@ -11,7 +11,8 @@ class BadgeInput extends React.Component {
   }
 
   componentDidMount() {
-    this.setFocusAgain();
+    // this.setFocusAgain();
+    setInterval(this.setFocusAgain, 1000);
   }
 
   componentDidUpdate() {
