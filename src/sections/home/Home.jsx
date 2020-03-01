@@ -9,18 +9,20 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import products from "./products.json";
-
-import Header from "./Header";
-import ProductCard from "./ProductCard";
+import Header from "../../components/Header";
 import BadgeInput from "./BadgeInput";
+import ProductCard from "./ProductCard";
 import ConfirmButton from "./ConfirmButton";
-import StatusOverlay from "./StatusOverlay.jsx";
+import StatusOverlay from "./StatusOverlay";
+
 import googleSpreadsheet from "../../services/googleSpreadsheet";
+
+import settings from "../../settings/general";
+import products from "../../settings/products";
 
 /* * */
 /* * * * */
-class Home extends React.Component {
+export default class Home extends React.Component {
   state = {
     badgeID: "",
     cart: [],
@@ -71,7 +73,7 @@ class Home extends React.Component {
       setTimeout(() => {
         // and reload the window after 800 miliseconds
         window.location = "/" + this.props.match.params.location;
-      }, 800);
+      }, settings["success-reload-delay"]);
     } catch (err) {
       console.log(err);
       // If an error occurs then display an error message
@@ -120,6 +122,3 @@ class Home extends React.Component {
     );
   }
 }
-
-/* * */
-export default Home;

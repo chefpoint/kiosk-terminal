@@ -2,12 +2,12 @@
 /* IMPORTS */
 import React from "react";
 
-import Player from "../elements/animation/Player";
-import animation from "../elements/animation/files/happy-dog.json";
+import Player from "../../components/animation/Player";
+import animation from "../../components/animation/files/happy-dog.json";
 
 /* * */
 /* * * * */
-function StatusOverlay({ loading, success, error, location }) {
+export default function StatusOverlay({ loading, success, error, location }) {
   return (
     (loading || success || error) && (
       <div
@@ -49,6 +49,3 @@ function StatusOverlay({ loading, success, error, location }) {
     )
   );
 }
-
-/* * */
-export default StatusOverlay;

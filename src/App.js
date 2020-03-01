@@ -4,8 +4,8 @@ import "./styles/elements.css";
 
 import { Switch, Route, Redirect } from "react-router";
 
-import StoreSelector from "./components/storeSelector/StoreSelector";
-import Home from "./components/home/Home";
+import StoreSelector from "./sections/storeSelector/StoreSelector";
+import Home from "./sections/home/Home";
 
 function App() {
   return (

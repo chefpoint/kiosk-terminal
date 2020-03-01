@@ -1,13 +1,18 @@
 /* * */
 /* IMPORTS */
 import React from "react";
-import locations from "./locations.json";
-import { Container, Col, Row } from "react-bootstrap";
-import Header from "../home/Header";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import Header from "../../components/Header";
+
+import locations from "../../settings/locations";
 
 /* * */
 /* * * * */
-class StoreSelector extends React.Component {
+export default class StoreSelector extends React.Component {
   render() {
     return (
       <Container>
@@ -32,6 +37,3 @@ class StoreSelector extends React.Component {
     );
   }
 }
-
-/* * */
-export default StoreSelector;

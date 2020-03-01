@@ -1,18 +1,19 @@
 /* * */
 /* IMPORTS */
 import React from "react";
-import settings from "../../settings/settings";
+import settings from "../../settings/general";
 
 /* * */
 /* * * * */
-class BadgeInput extends React.Component {
+export default class BadgeInput extends React.Component {
   constructor(props) {
     super(props);
     this.textInput = React.createRef();
   }
 
   componentDidMount() {
-    setInterval(() => this.setFocusAgain(), settings["input-focus-delay"]);
+    this.setFocusAgain();
+    // setInterval(() => this.setFocusAgain(), settings["input-focus-delay"]);
   }
 
   setFocusAgain() {
@@ -30,7 +31,7 @@ class BadgeInput extends React.Component {
         name="search"
         type="text"
         ref={this.textInput}
-        placeholder="your badge please"
+        placeholder="clique para ler o badge"
         value={this.props.value}
         onChange={event => {
           this.props.onChange(event);
@@ -42,6 +43,3 @@ class BadgeInput extends React.Component {
     );
   }
 }
-
-/* * */
-export default BadgeInput;

@@ -4,7 +4,7 @@ import React from "react";
 
 /* * */
 /* * * * */
-class ProductCard extends React.Component {
+export default class ProductCard extends React.Component {
   state = {
     selected: false
   };
@@ -29,6 +29,3 @@ class ProductCard extends React.Component {
     );
   }
 }
-
-/* * */
-export default ProductCard;
