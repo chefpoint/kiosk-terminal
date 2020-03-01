@@ -1,6 +1,7 @@
 /* * */
 /* IMPORTS */
 import React from "react";
+import settings from "../../settings/settings";
 
 /* * */
 /* * * * */
@@ -11,12 +12,7 @@ class BadgeInput extends React.Component {
   }
 
   componentDidMount() {
-    // this.setFocusAgain();
-    setInterval(this.setFocusAgain, 1000);
-  }
-
-  componentDidUpdate() {
-    this.setFocusAgain();
+    setInterval(() => this.setFocusAgain(), settings["input-focus-delay"]);
   }
 
   setFocusAgain() {
@@ -24,11 +20,10 @@ class BadgeInput extends React.Component {
       this.textInput.current.focus();
       this.textInput.current.select();
       this.textInput.current.setSelectionRange(0, 9999);
-    }, 700);
+    }, settings["input-focus-delay"]);
   }
 
   render() {
-    this.setFocusAgain();
     return (
       <input
         className="badgeInput animate my-4 mx-3"
