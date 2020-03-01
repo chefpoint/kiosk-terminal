@@ -2,7 +2,7 @@
 /* IMPORTS */
 import React from "react";
 
-import logo from "./chefpoint-logo.jpg";
+import logo from "./chefpoint-logo@2x.png";
 
 /* * */
 /* * * * */
