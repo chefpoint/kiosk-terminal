@@ -14,6 +14,10 @@ class BadgeInput extends React.Component {
     this.setFocusAgain();
   }
 
+  componentDidUpdate() {
+    this.setFocusAgain();
+  }
+
   setFocusAgain() {
     setTimeout(() => {
       this.textInput.current.focus();
