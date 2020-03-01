@@ -96,8 +96,8 @@
 
 /* * */
 /* * * * */
-/* CONFIRM BUTTON */
-.confirmButton:hover {
+/* CHECKOUT BUTTON */
+.checkoutButton:hover {
   color: white;
   background-color: rgb(0, 125, 215);
 }

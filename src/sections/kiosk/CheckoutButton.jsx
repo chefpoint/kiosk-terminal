@@ -9,7 +9,7 @@ export default function CheckoutButton({ enabled, onClick }) {
     <div
       className={
         "display-card text-center animate p-5 m-3 w-100" +
-        (enabled ? " depth cursor-pointer confirmButton" : " disabled")
+        (enabled ? " depth cursor-pointer checkoutButton" : " disabled")
       }
       onClick={() => enabled && onClick()}
     >
