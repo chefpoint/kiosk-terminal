@@ -17,6 +17,7 @@ class Header extends React.Component {
           alt="chefpoint-logo"
           onClick={() => (window.location = "/")}
         />
+        <p>23</p>
       </div>
     );
   }
