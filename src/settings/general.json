@@ -1,5 +1,6 @@
 {
   "version": "CHEF POINT Kiosk - Version 1",
-  "input-focus-delay": 800,
+  "google-sheets-document-id": "1S7_KDr9jhVMhnjew9AmnDf1k2VJeszloJDjAjqe22gs",
+  "input-focus-delay": 700,
   "success-reload-delay": 600
 }

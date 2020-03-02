@@ -1,8 +1,9 @@
+/* * */
+/* IMPORTS */
 import { GoogleSpreadsheet } from "google-spreadsheet";
+import settings from "../settings/general";
 
-const doc = new GoogleSpreadsheet(
-  "1S7_KDr9jhVMhnjew9AmnDf1k2VJeszloJDjAjqe22gs"
-);
+const doc = new GoogleSpreadsheet(settings["google-sheets-document-id"]);
 
 async function addNewRow(row) {
   await doc.useServiceAccountAuth({
